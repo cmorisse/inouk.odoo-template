@@ -1,7 +1,7 @@
 #####
 # Odoo Dev Dockerfile 
 #
-FROM odoo-base
+FROM inouk/odoo-base
 LABEL Maintainer="Cyril MORISSE <cmorisse@boxes3.net>"
 
 ENV ODOO_VERSION 11.0
@@ -17,7 +17,8 @@ WORKDIR "/opt/odoo"
 # Install IKP3db from sources to hack it
 # /var/lib/odoo is mounted via run -v ...
 COPY ikp3db ikp3db/
-RUN  pip install -e /opt/odoo/ikp3db
+RUN pip install -e /opt/odoo/ikp3db
+RUN pip install phonenumbers
 
 
 # Install IKP3db from pypi or pypi test
